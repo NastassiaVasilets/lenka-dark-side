@@ -1,0 +1,93 @@
+@import '../../stylus/vars.styl'
+
+.full-session
+    width 37%
+    z-index 1
+    height 350px
+    position relative
+    margin 0 auto
+    background #fff
+    border 2px dashed border-offers
+    margin-bottom 30px
+    
+    
+.full-session + .full-session 
+    margin-top 30px
+
+.full-session
+    &:first-child
+        margin-top 10px
+    &:last-child
+        margin-bottom 10px
+
+
+.full-session__name
+    width 50%
+    font-size 1.2em
+    margin-left 250px
+    padding-top 20px
+
+.full-session__dish
+    width 50%
+    margin-left 250px
+
+.full-session__time
+    width 7.3%
+    font-size 1.6em
+    margin-left 250px
+    margin-bottom 10px
+
+@media screen and (max-width: 1000px)
+    .full-session
+        height 350px
+
+    .full-session__name, .full-session__dish
+        width 65%
+        margin 0 auto
+        text-align center
+
+    .full-session__time
+        padding-top 10px
+        width 13.7%
+        margin 0 auto
+
+    .full-session__controls
+        width 70%
+        margin 0 auto
+        padding-top 15px
+        padding-left 70px
+
+@media screen and (max-width: 860px)
+
+    .full-session__name, .fullsession__dish
+        width 75%
+
+    .full-session__controls
+        padding-left 16px
+
+@media screen and (max-width: 740px)
+    .full-session
+        height 400px
+
+    .full-session__controls
+        width 90%
+        padding-left 71px
+
+@media screen and (max-width: 650px)
+    .full-session__name, .full-session__dish
+        font-size 1.1em
+
+    .full-session__controls
+        width 60%
+        padding-left 0
+        
+    .full-session__time
+        width 18.7%
+
+@media screen and (max-width: 401px)
+    .full-session__time
+        width 30.9%
+
+    .full-session__controls
+        width 65%
+        padding-left 12px
