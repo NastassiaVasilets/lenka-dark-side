@@ -9,7 +9,6 @@ module.exports = function savePersonalArea(req, res) {
 			person.name = req.body.name;
 			person.phone = req.body.phone;
 			person.email = req.body.email;
-			console.log(person);
 			person.save();
 			res.redirect('back');
 		});

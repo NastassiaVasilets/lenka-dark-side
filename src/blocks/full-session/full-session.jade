@@ -7,8 +7,9 @@ mixin full-session(name, time, logo, order, subscribers)
         .full-session__name= name
         each dish in order.dishes
             .full-session__dish=dish.name
+            .full-session__dish-price=dish.price
         .full-session__subscribers 
-            Подписчики
+            span Подписчики
             each subscriber in subscribers
                 .full-session__subscriber-name=subscriber.person.name
                 each dish in subscriber.dishes

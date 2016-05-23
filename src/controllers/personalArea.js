@@ -1,7 +1,7 @@
 var OrderModel = require('../models/order').model;
 
 module.exports = function personalArea(req, res) {
-	OrderModel.find({}, function(err, allOrders){
+	OrderModel.find({}).populate("dishes").populate("subscriber").populate("subscriber.dishes").exec(function(err, allOrders){
 		var orders = [];
 		if(err) {
 			next(err)

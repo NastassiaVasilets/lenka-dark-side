@@ -14,6 +14,7 @@ passport.deserializeUser(function (id, done) {
        done(err, user);
     });
 });
+
 passport.use('facebook',
     new FacebookStrategy({
         'clientID': '1055036224558106',
