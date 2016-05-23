@@ -6,5 +6,5 @@ mixin header(person)
         .header__block
             a.header__logo(alt="logo" href="/home")
             .header__slogan
-            a.header__link-adminRoom(href="") Мои кабинет
-            +button("Сделать заказ", "header__button")
+            +button("Личный кабинет", ["header__button"], {'href': '/personalArea'})
+            +button("Сделать заказ", ["header__button"], {'href': '/services?owner=True' })

@@ -1,4 +1,19 @@
-mixin person(owner)
-	.person
-		img.person__photo(src=owner.avatar)
-		.person__name=owner.name
+mixin person(user, mods, options)
+    if (options && options.full == "true")
+        .person(class=mods)
+            form.form(action="/savePersonalArea", method="post")
+                img.person__photo(src=user.avatar)
+                .person__iptName
+                    label.person__placholder-input Ваше имя
+                    input.person__name(type="text", name="name", value=user.name)
+                .person__inpPhone
+                    label.person__placholder-phone
+                    input.person__phone(type="text", placeholder="Телефон", name="phone", value=user.phone)
+                .person__inpEmail
+                    label.person__placholder-email
+                    input.person__email(type="text", placeholder="Email", name="email", value=user.email)
+                +button("Сохранить изменения", "person__button", {"type": "submit", "name": "action", "value": "editPerson"})
+    else
+        .person
+            img.person__photo(src=user.avatar)
+            .person__name=user.nam

@@ -9,16 +9,8 @@ include ../blocks/subscriber/subscriber
 
 block title
     title Главная страница
-    if user
-        +header(user)
-        a(href="/personalArea") Личный кабинет
-        +button("Создать новый заказ", [".button_new-order"],{'href': '/services?owner=True' })
-    else
+    .main-page__wrapper
         +header()
-        +button("Создать новый заказ", [".button_new-order", "button_not_active"])
-    script
-        include ../blocks/total/total.js
-    .main-wrapper
         .main-page
             each order in orders
                 +session(order.owner, order.time, order.service, order.service._id, order, user, order.subscriber.length)
@@ -45,3 +37,4 @@ block title
         +footer("© Lenka-dark-side Corporation")
     script
         include ../blocks/mainpage/mainpage.js
+        include ../blocks/total/total.js

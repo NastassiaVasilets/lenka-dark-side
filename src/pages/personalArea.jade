@@ -7,20 +7,23 @@ include ../blocks/full-session/full-session
 include ../blocks/footer/footer
 include ../blocks/group/group
 include ../blocks/subscriber/subscriber
+include ../blocks/person/person
 
 block title
     title Личный кабинет
 block content
-    +header(user)
-    .tabs
-        ul.tabs__caption
-            li.active История заказов
-            li Долги
-            li Информация профиля
-        .tabs__content.active.history 
-            each order in orders
-               +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
-        .tabs__content.debt Долги
-        .tabs__content.profile Информация профиля
+    .personal-area__wrapper
+        +header(user)
+        .tabs
+            ul.tabs__caption
+                li.active История заказов
+                li Долги
+                li Информация профиля
+            .tabs__content.active.history 
+                each order in orders
+                   +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
+            .tabs__content.debt Долги
+            .tabs__content.profile 
+                +person(user,["person_full"],{"full":"true"})
     script
         include ../blocks/personal-area-page/personal-area-page.js
