@@ -1,17 +1,21 @@
 include ../company/company
 
-mixin full-session(name, time, logo, order, subscribers)
-    .full-session
+mixin full-session(name, time, logo, order, subscribers,mods, options)
+    .full-session(class=mods)
         +company(logo)
         #time.full-session__time= time
         .full-session__name= name
         each dish in order.dishes
             .full-session__dish=dish.name
             .full-session__dish-price=dish.price
+                span руб
         .full-session__subscribers 
-            span Подписчики
+            .full-session__subscribers-title Подписчики
             each subscriber in subscribers
                 .full-session__subscriber-name=subscriber.person.name
                 each dish in subscriber.dishes
-                    full-session__subscriber-dish=dish.name
-                    full-session__subscriber-price=dish.price
+                    .full-session__dish=dish.name
+                    .full-session__dish-price=dish.price
+                        span руб
+        if (options && options.show)
+            a(class='close') Скрыть

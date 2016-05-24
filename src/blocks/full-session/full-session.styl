@@ -3,12 +3,13 @@
 .full-session
     width 37%
     z-index 1
-    height 350px
+    height 300px
     position relative
     margin 0 auto
     background #fff
-    border 2px dashed border-offers
     margin-bottom 30px  
+    overflow-y auto
+    overflow-x hidden
     
 .full-session + .full-session 
     margin-top 30px
@@ -27,10 +28,6 @@
     left 60px
     top 10px
 
-.full-session__dish
-    width 50%
-    margin-left 250px
-
 .full-session__time
     width 100%
     font-size 1.6em
@@ -38,9 +35,37 @@
     left 50px
     text-align center
     
-.full-session__subscribers 
+.full-session__dish
+    display inline-block
+    width 40%
+    position relative
+    left 120px
+    top 10px
+    &:first-child
+        margin-top 10px
+    
+.full-session__dish-price
+    display inline-block
+    width 40%
+    position relative 
+    color gray
+    top 10px
+    margin-left 40px
+    text-align right
+
+.full-session__subscribers-title
     position relative
     top 20px
+    text-align center
+    text-transform uppercase
+    font-size 1.5em
+        
+.full-session__subscriber-name
+    position relative
+    top 20px
+    font-weight bold
+    margin-bottom 10px
+    
       
 @media screen and (max-width: 1000px)
     .full-session

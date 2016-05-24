@@ -3,6 +3,7 @@ var OrderModel = require('../models/order').model;
 module.exports = function HomeController(req, res, next) {
     OrderModel.find({})
         .populate("dishes")
+        .populate("subscriber")
         .populate("subscriber.dishes")
         .exec(function (err, orders) {
             if (err) {
