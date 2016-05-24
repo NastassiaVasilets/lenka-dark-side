@@ -25,3 +25,7 @@ mixin session(owner, time, service, id, order, user, length)
                     span=length
                 .session__look Посмотреть заказ
                     +button("", ["button_icon", "button_icon-look"], {"iconsOnly": "true", "href":'#'})
+        .overlay
+        .popup
+            .close_window x
+            +full-session(owner.name, time, service.logo, order, order.subscriber, "full-session_main")
