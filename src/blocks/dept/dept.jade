@@ -1,11 +1,10 @@
-mixin dept(user, mods,options)
+mixin dept(debts,title,mods,options)
 	.dept(class=mods)
-		if options && options.me
-			each dept in me
-				=dept.person
-				=dept.sum
-				input(type='checkbox')
-		if options && options.my
-			each dept in my
-				=dept.person
-				=dept.sum
+		.dept__title=title
+		each dept in debts
+			.dept__person
+				.dept__name=dept.person
+				.dept__sum=dept.sum
+					span руб.
+				label.dept__paid
+					input(type='checkbox')
