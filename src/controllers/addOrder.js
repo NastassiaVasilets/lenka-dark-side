@@ -14,6 +14,8 @@ module.exports = function(req,res,next) {
                             res.redirect('/home');
                         }else{
                             res.redirect('back');
+                            res.redirect('/home');
+
                         }
                 });
             });
@@ -36,7 +38,10 @@ module.exports = function(req,res,next) {
                         req.session.dishes = {};
                         res.redirect('/home');
                     }else{
+
                         res.redirect('back');
+                        res.redirect('/home');
+
                     }
                 });
             });

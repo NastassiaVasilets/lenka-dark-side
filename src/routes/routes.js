@@ -16,8 +16,12 @@ var personalArea = require('../controllers/personalArea');
 var savePersonalArea = require('../controllers/savePersonalArea');
 var saveDept = require('../controllers/saveDept');
 
+var HomeJSONController = require('../controllers/getJsonHome.js');
+
+
 router.get('/', authController);
 router.get('/home', homeController);
+router.get('/homejson', HomeJSONController);
 
 router.get('/services', servicesController);
 router.post('/setTime', setTime);
