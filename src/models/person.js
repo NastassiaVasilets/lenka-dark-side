@@ -7,7 +7,8 @@ var personSchema = new Schema({
     avatar: String,
     phone: String,
     facebookId: String,
-    vkId: String
+    vkId: String,
+    email: String
 });
 
 module.exports = {

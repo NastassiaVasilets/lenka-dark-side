@@ -1,17 +1,69 @@
 @import '../../stylus/vars.styl'
 
 .person
-	width 100%	
-	padding 15px 0
-	
+    width 100%  
+    padding 15px 0
+    
 .person__photo
-	border-radius 50%
-	width 100px
-	height 100px
-	position relative
-	left 50%
-	margin-left -50px
+    border-radius 50%
+    width 100px
+    height 100px
+    position relative
+    left 50%
+    margin-left -50px
 
 .person__name
-	text-align center
-	font-size 20pt
+    text-align center
+    font-size 20pt
+    
+.person_full
+    width 500px
+    height 400px
+    margin 0 auto
+    background #fff
+    border-radius 2px
+    
+.person__iptName
+    padding-top 20px
+
+.person__placholder-input
+    font-size 0.9em
+    color #999
+    position absolute
+    left 315px
+    top 330px
+    display none
+
+.person_full form
+    float none
+
+.person_full .person__name
+    width 325px
+    height 40px
+    margin-left 80px
+    border 0
+    border-bottom 1px solid offers-grey
+    font-size 16px
+    &:focus
+        outline none
+        border-bottom 2px solid #6bace1
+
+.person_full .person__inpPhone, .person_full .person__inpEmail
+    padding-top 20px
+    padding-bottom 20px
+
+.person_full .person__phone, .person_full .person__email
+    width 325px
+    height 40px
+    margin-left 80px
+    border 0
+    border-bottom 1px solid offers-grey
+    font-size 16px
+    &:focus
+        outline none
+        border-bottom 2px solid #6bace1
+
+.person__button
+    width 150px
+    margin-left 170px
+    

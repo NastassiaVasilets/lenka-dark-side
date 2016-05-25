@@ -1,0 +1,125 @@
+@import '../../stylus/vars.styl'
+
+.full-session
+    width 37%
+    z-index 1
+    height 300px
+    position relative
+    margin 0 auto
+    background #fff
+    margin-bottom 30px  
+    overflow-y auto
+    overflow-x hidden
+    
+.full-session + .full-session 
+    margin-top 30px
+
+.full-session
+    &:first-child
+        margin-top 10px
+    &:last-child
+        margin-bottom 10px
+
+.full-session__name
+    width 100%
+    font-size 1.2em
+    position relative
+    text-align center
+    left 60px
+    top 10px
+
+.full-session__time
+    width 100%
+    font-size 1.6em
+    position relative
+    left 50px
+    text-align center
+    
+.full-session__dish
+    display inline-block
+    width 40%
+    position relative
+    left 120px
+    top 10px
+    &:first-child
+        margin-top 10px
+    
+.full-session__dish-price
+    display inline-block
+    width 40%
+    position relative 
+    color gray
+    top 10px
+    margin-left 40px
+    text-align right
+
+.full-session__subscribers-title
+    position relative
+    top 20px
+    text-align center
+    text-transform uppercase
+    font-size 1.5em
+        
+.full-session__subscriber-name
+    position relative
+    top 20px
+    font-weight bold
+    margin-bottom 10px
+
+.full-session_main
+    width 100%    
+      
+@media screen and (max-width: 1000px)
+    .full-session
+        height 350px
+
+    .full-session__name, .full-session__dish
+        width 65%
+        margin 0 auto
+        text-align center
+
+    .full-session__time
+        padding-top 10px
+        width 13.7%
+        margin 0 auto
+
+    .full-session__controls
+        width 70%
+        margin 0 auto
+        padding-top 15px
+        padding-left 70px
+
+@media screen and (max-width: 860px)
+
+    .full-session__name, .fullsession__dish
+        width 75%
+
+    .full-session__controls
+        padding-left 16px
+
+@media screen and (max-width: 740px)
+    .full-session
+        height 400px
+
+    .full-session__controls
+        width 90%
+        padding-left 71px
+
+@media screen and (max-width: 650px)
+    .full-session__name, .full-session__dish
+        font-size 1.1em
+
+    .full-session__controls
+        width 60%
+        padding-left 0
+        
+    .full-session__time
+        width 18.7%
+
+@media screen and (max-width: 401px)
+    .full-session__time
+        width 30.9%
+
+    .full-session__controls
+        width 65%
+        padding-left 12px

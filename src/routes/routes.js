@@ -12,6 +12,8 @@ var addOrder = require('../controllers/addOrder');
 var removeFromBasketController = require('../controllers/removeFromBasket.js');
 var checkController = require('../controllers/check.js');
 var authController = require('../controllers/authController.js');
+var personalArea = require('../controllers/personalArea.js');
+var savePersonalArea = require('../controllers/savePersonalArea');
 
 router.get('/', authController);
 router.get('/home', homeController);
@@ -22,6 +24,9 @@ router.get('/services/:id', serviceController);
 router.get('/removeFromBasket/:id', removeFromBasketController);
 
 router.post('/sessionControls', sessionControls);
+router.get('/personalArea', personalArea);
+
+router.post('/savePersonalArea', savePersonalArea);
 
 router.get('/auth/fb',passport.authenticate('facebook', {successRedirect: '/home', failureRedirect: 'back'}));
 router.get('/auth/vk',passport.authenticate('vk', {successRedirect: '/home', failureRedirect: 'back'}));

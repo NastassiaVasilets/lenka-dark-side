@@ -14,6 +14,7 @@ passport.deserializeUser(function (id, done) {
        done(err, user);
     });
 });
+
 passport.use('facebook',
     new FacebookStrategy({
         'clientID': '1055036224558106',
@@ -33,6 +34,8 @@ passport.use('facebook',
                     newPerson.facebookId = profile.id;
                     newPerson.name = profile.displayName;
                     newPerson.avatar = "https://graph.facebook.com/" + profile.username + "/picture" + "?width=200&height=200" + "&access_token=" + token;
+                    newPerson.phone = "";
+                    newPerson.email = "";
                     newPerson.save(function (err) {
                         if (err)
                             throw err;
@@ -64,6 +67,9 @@ passport.use('vk',
                     newPerson.vkId = profile.id;
                     newPerson.name = profile.displayName;
                     newPerson.avatar = profile.photos[0].value;
+                    newPerson.phone = "";
+                    //проверить. может как то можно и емэйл вытянуть
+                    newPerson.email = "";
                     newPerson.save(function (err) {
                         if (err)
                             throw err;
