@@ -1,9 +1,9 @@
 include ../company/company
 
-mixin full-session(name, time, logo, order, subscribers,mods, options)
+mixin full-session(name, time, logo, order, subscribers,mods)
     .full-session(class=mods)
         +company(logo)
-        #time.full-session__time= time
+        #time.full-session__time=time.getHours()+':'+time.getMinutes()
         .full-session__name= name
         each dish in order.dishes
             .full-session__dish=dish.name
@@ -17,5 +17,3 @@ mixin full-session(name, time, logo, order, subscribers,mods, options)
                     .full-session__dish=dish.name
                     .full-session__dish-price=dish.price
                         span руб
-        if (options && options.show)
-            a(class='close') Скрыть

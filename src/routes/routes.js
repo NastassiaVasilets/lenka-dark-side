@@ -12,7 +12,7 @@ var addOrder = require('../controllers/addOrder');
 var removeFromBasketController = require('../controllers/removeFromBasket.js');
 var checkController = require('../controllers/check.js');
 var authController = require('../controllers/authController.js');
-var personalArea = require('../controllers/personalArea.js');
+var personalArea = require('../controllers/personalArea');
 var savePersonalArea = require('../controllers/savePersonalArea');
 
 router.get('/', authController);
