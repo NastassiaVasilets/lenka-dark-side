@@ -13,7 +13,7 @@ block title
     title Личный кабинет
 block content
     .personal-area__wrapper
-        +header(user)
+        +header()
         .tabs
             ul.tabs__caption
                 li.active История заказов
@@ -22,7 +22,9 @@ block content
             .tabs__content.active.history 
                 each order in orders
                    +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
-            .tabs__content.debt Долги
+            .tabs__content.debt 
+                //+dept(user, ["dept_my"])
+                //+dept(user,["dept_me"])
             .tabs__content.profile 
                 +person(user,["person_full"],{"full":"true"})
     script

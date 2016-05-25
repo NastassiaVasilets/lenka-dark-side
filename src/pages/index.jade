@@ -16,22 +16,7 @@ block content
         .main-page
             each order in orders
                 +session(order.owner, order.time, order.service, order.service._id, order, user, order.subscriber.length)
-                if user
-                    if order.owner.name===user.name
-                        script.
-                            timer(document.getElementById('time').innerHTML);
-                        #total.total
-                            form.form(action="/closeOrder", method="post")
-                            .total__close(onclick="document.getElementById('total').style.display='none'")
-                            .total__content
-                                .total__title Итого
-                                each dish in order.dishes
-                                    +group(dish)
-                                each subscriber in order.subscriber
-                                    if subscriber.paid
-                                        each dish in subscriber.dishes
-                                            +group(dish)
         +footer("© Lenka-dark-side Corporation")
     script
-        include ../blocks/mainpage/mainpage.js
-        include ../blocks/total/total.js
+        include ../blocks/session/session.js
+

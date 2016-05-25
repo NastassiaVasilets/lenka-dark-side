@@ -5,7 +5,10 @@ module.exports = function setTime(req, res, next) {
         var hrs = +req.body.hrs;
         var mnts = +req.body.mnts;
         if (((hrs ^ 0) === hrs) && ((mnts ^ 0) === mnts) && (hrs < 24) && (hrs > 0) && (mnts < 60) && (mnts > 0)) {
-            req.session.time = req.body.hrs + ":" + req.body.mnts;
+            var time = new Date();
+            time.setHours(hrs);
+            time.setMinutes(mnts);
+            req.session.time = time;
             req.session.serviceId = req.body.serviceId;
             res.redirect('/services/'+req.body.serviceId)
         }

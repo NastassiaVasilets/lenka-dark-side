@@ -11,7 +11,7 @@ var orderSchema = new Schema({
     owner: personSchema,
     dishes: [{ type: Schema.Types.ObjectId, ref: 'Dish' }],
     service: serviceSchema,
-    time: String,
+    time: Date,
 
     subscriber: [{ person: personSchema, dishes: [{ type: Schema.Types.ObjectId, ref: 'Dish' }], paid: Boolean }]
 
