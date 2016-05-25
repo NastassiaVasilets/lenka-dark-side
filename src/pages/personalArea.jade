@@ -1,13 +1,10 @@
 extends ../views/layout/layout
 include ../blocks/header/header
 include ../blocks/button/button
-include ../blocks/order/order
 include ../blocks/session/session
 include ../blocks/full-session/full-session
 include ../blocks/footer/footer
-include ../blocks/group/group
-include ../blocks/subscriber/subscriber
-include ../blocks/person/person
+include ../blocks/dept/dept
 
 block title
     title Личный кабинет
@@ -22,9 +19,12 @@ block content
             .tabs__content.active.history 
                 each order in orders
                    +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
+                div На которые я была подписана
+                each order in subscrOrders
+                   +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
             .tabs__content.debt 
-                //+dept(user, ["dept_my"])
-                //+dept(user,["dept_me"])
+                +dept(my, [], {my: true})
+                +dept(me, [], {me: true})
             .tabs__content.profile 
                 +person(user,["person_full"],{"full":"true"})
     script

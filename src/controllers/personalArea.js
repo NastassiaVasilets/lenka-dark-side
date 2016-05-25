@@ -3,6 +3,7 @@ var OrderModel = require('../models/order').model;
 module.exports = function personalArea(req, res) {
 	OrderModel.find({}).populate("dishes").populate("subscriber").populate("subscriber.dishes").exec(function(err, allOrders){
 		var orders = [];
+		var subscrOrders = [];
 		if(err) {
 			next(err)
 		}
@@ -10,8 +11,14 @@ module.exports = function personalArea(req, res) {
 			if (allOrders[i].owner.id == req.user.id) {
 				orders.push(allOrders[i]);
 			}
+			for (var j = 0; j < allOrders[i].subscriber.length; j++) {
+				if (allOrders[i].subscriber[j].person.id == req.user.id) {
+					subscrOrders.push(allOrders[i]);
+				}
+			}
 		}
-		//доделать вывод в историю тех заказов на которые я была подписана и сортировку их по времени
+
+		//доделать сортировку по времени. и переделать используя перебирающие методы
 		var my = [];
 		var me = [];
 		//высчитываем сколько мне должны
@@ -48,6 +55,6 @@ module.exports = function personalArea(req, res) {
 		}
 		console.log('me',me);
 		console.log('my',my);
-		res.render('personalArea', {orders: orders,user:req.user, my: my, me: me});
+		res.render('personalArea', {orders: orders, subscrOrders: subscrOrders, user:req.user, my: my, me: me});
 	});
 }
