@@ -5,7 +5,7 @@
             console.log(data);
 
             var now = new Date();
-            var timeOrder = new Date();
+            // var timeOrder = new Date();
 
             if(!window.Notification) {
                 alert("Извините, ваш браузер не разрешает отправлять вам уведомления... Советуем его")
@@ -50,23 +50,33 @@
 
             var intrvOfOwners = setInterval(function() {
                 for(var i=0; i < data.ownerArr.length; i++) {
+                    var timeOrderString = 0;                    
 
-                    var timeOrderString = data.ownerArr[i].time;
+                    timeOrderString = data.ownerArr[i].time;
+                    var timeOrder = new Date(timeOrderString);
+
                     console.log(timeOrder);
+
                     var nowMLS = now.getTime();
-                    var hours = timeOrderString[0] + timeOrderString[1];
-                    var min = timeOrderString[3] + timeOrderString[4];
-
-                    var nhours = parseInt(hours);
-                    var nmin = parseInt(min);
-
-                    timeOrder.setHours(nhours);
-                    timeOrder.setMinutes(nmin);
-
                     var timeOrderMLS = timeOrder.getTime();
+                    // var hours = timeOrderString[0] + timeOrderString[1];
+                    // var min = timeOrderString[3] + timeOrderString[4];
+
+                    // console.log(hours);
+                    // console.log(min);
+
+                    // var nhours = parseInt(hours);
+                    // var nmin = parseInt(min);
+
+                    // timeOrder.setHours(nhours);
+                    // timeOrder.setMinutes(nmin);
+
+                    // var timeOrderMLS = timeOrder.getTime();
 
                     var diffr = timeOrderMLS - nowMLS;
                     var diffTime = diffr/60000;  
+
+                    console.log(diffTime);
 
                     if((Notification.permission === "granted") && (diffTime <= 0)) {
                         var msg = new Notification("Заказ выехал!", {
@@ -77,6 +87,7 @@
                     };
 
                     if ((Notification.permission === "granted") && (diffTime <=20) && (diffTime > 10)) {
+                        console.log('work');
                         var msg = new Notification("Скоро дэдлайн!", {
                             body: "Ваш заказ в " + data.ownerArr[i].service.title + " нужно будет оформлять через " + diffTime + " минут" + "\n" + "Пора собирать деньги :)",
                             icon: "../images/notification/icon.png"
@@ -94,27 +105,29 @@
                         });
                     } else {
                         console.log('Человек решил не отвечать!');
-                    }
+                    }   
                 }
-            }, 120000);
+            }, 10000);
 
 
             var intrvOfSubscriber = setInterval(function() {
                 for(var i=0; i < data.subscriberArr.length; i++) {
 
                     var timeOrderString = data.subscriberArr[i].time;
-                    console.log(timeOrder);
+                    var timeOrder = new Date(timeOrderString);
+
                     var nowMLS = now.getTime();
-                    var hours = timeOrderString[0] + timeOrderString[1];
-                    var min = timeOrderString[3] + timeOrderString[4];
-
-                    var nhours = parseInt(hours);
-                    var nmin = parseInt(min);
-
-                    timeOrder.setHours(nhours);
-                    timeOrder.setMinutes(nmin);
-
                     var timeOrderMLS = timeOrder.getTime();
+                    // var hours = timeOrderString[0] + timeOrderString[1];
+                    // var min = timeOrderString[3] + timeOrderString[4];
+
+                    // var nhours = parseInt(hours);
+                    // var nmin = parseInt(min);
+
+                    // timeOrder.setHours(nhours);
+                    // timeOrder.setMinutes(nmin);
+
+                    // var timeOrderMLS = timeOrder.getTime();
 
                     var diffr = timeOrderMLS - nowMLS;
                     var diffTime = diffr/60000;  
