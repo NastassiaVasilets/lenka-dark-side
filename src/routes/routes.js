@@ -14,6 +14,7 @@ var checkController = require('../controllers/check.js');
 var authController = require('../controllers/authController.js');
 var personalArea = require('../controllers/personalArea');
 var savePersonalArea = require('../controllers/savePersonalArea');
+var saveDept = require('../controllers/saveDept');
 
 router.get('/', authController);
 router.get('/home', homeController);
@@ -27,6 +28,7 @@ router.post('/sessionControls', sessionControls);
 router.get('/personalArea', personalArea);
 
 router.post('/savePersonalArea', savePersonalArea);
+router.post('/saveDept', saveDept);
 
 router.get('/auth/fb',passport.authenticate('facebook', {successRedirect: '/home', failureRedirect: 'back'}));
 router.get('/auth/vk',passport.authenticate('vk', {successRedirect: '/home', failureRedirect: 'back'}));

@@ -1,10 +1,11 @@
 mixin dept(debts,title,mods,options)
-	.dept(class=mods)
-		.dept__title=title
-		each dept in debts
-			.dept__person
-				.dept__name=dept.person
-				.dept__sum=dept.sum
-					span руб.
-				label.dept__paid
-					input(type='checkbox')
+    .dept(class=mods)
+        .dept__title=title
+        each dept in debts
+            .dept__person
+                .dept__name=dept.person
+                .dept__sum=dept.sum
+                    span руб.
+                label.dept__paid
+                    input(type='checkbox')
+                .dept__order-id=dept.orderId
