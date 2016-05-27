@@ -12,7 +12,8 @@ mixin session(owner, time, service, id, order, user, length)
             +person(owner)
             .session__info Сделал заказ в 
                 span=service.title
-            .session__time=time.getHours()+':'+time.getMinutes()
+
+            #time.session__time=time.getHours()+':'+time.getMinutes()
             if user
                 .session__controls
                     input(type="hidden" name="userId" value=user._id)
