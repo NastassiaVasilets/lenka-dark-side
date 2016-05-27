@@ -1,6 +1,6 @@
 include ../company/company
 
-mixin full-session(name, time, logo, order, subscribers,mods)
+mixin full-session(name, time, logo, order, subscribers, mods)
     .full-session(class=mods)
         +company(logo)
         #time.full-session__time=time.getHours()+':'+time.getMinutes()

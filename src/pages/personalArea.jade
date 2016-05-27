@@ -17,15 +17,19 @@ block content
                 li Долги
                 li Информация профиля
             .tabs__content.active.history 
-                each order in orders
-                   +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
-                div На которые я была подписана
-                each order in subscrOrders
-                   +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber)
+                .history__owner
+                    .history__title Заказы, созданные мной
+                    each order in orders
+                       +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber, "full-session_personal-area")
+                .history__subscriber
+                    .history__title Заказы, на которые я был(а) подписана
+                    each order in subscrOrders
+                       +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber, "full-session_personal-area")
             .tabs__content.debt 
-                +dept(my, [], {my: true})
-                +dept(me, [], {me: true})
+                +dept(my,"Я должен")
+                +dept(me,"Мне должны", ["dept__me"])
             .tabs__content.profile 
                 +person(user,["person_full"],{"full":"true"})
     script
         include ../blocks/personal-area-page/personal-area-page.js
+        include ../blocks/dept/dept.js

@@ -1,0 +1,67 @@
+.dept
+    width 35%
+    height 300px
+    overflow-y auto
+    display inline-block
+    background #fff
+    border-radius 2px
+    
+.dept__title
+    font-size 1.7em
+    fint-weight bold
+    text-align center
+    color buttons
+    
+.dept__person
+    margin 8px 2%
+    
+.dept__name, .dept__sum
+    display inline-block
+
+.dept__paid 
+    display none
+
+.dept__name
+    width 68%
+    font-size 1.2em
+    
+.dept__sum
+    width 28%
+    font-size 1em
+    color darkgray
+    text-align right
+    
+.dept__order-id
+    display none
+  //доделать адаптив и стилизацию чекбоксов  
+.dept__me 
+    & .dept__name
+        width 50%
+    & .dept__sum
+        width 38%
+    & .dept__paid
+        display inline-block
+        text-align right
+        width 8%
+        position relative
+        cursor pointer
+    & .dept__paid input[type='checkbox']
+        margin-right 20px
+        display inline-block
+        vertical-align middle
+        & ::after
+            font-size 0
+            line-height 20px
+            position absolute
+            top 0
+            left 0
+            display block
+            width 22px
+            height 22px
+            transition all .1s linear
+            text-align center
+            color #fff
+            border 1px solid buttons
+            border-radius 2px
+            background-color #fff
+            box-sizing border-box
