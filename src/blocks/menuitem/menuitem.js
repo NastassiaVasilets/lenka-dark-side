@@ -24,5 +24,21 @@ $(function(){
                 "</div>" + 
                 "</div>");
         }); 
+    });
+    $('body').on('click', '.order__more', function(){
+        var dishId = $(this).siblings('.order__close').attr('href');
+        dishId = dishId.substr(18);
+        var number = $(this).siblings('.order__value').children(".order__value").val();
+        $(this).siblings('.order__value').children(".order__value").val(+number + 1);
+        $.post("/addToShoppingCart", {dishId: dishId});
+    }); 
+    $('body').on('click', '.order__less', function(){
+        var dishId = $(this).siblings('.order__close').attr('href');
+        dishId = dishId.substr(18);
+        var number = $(this).siblings('.order__value').children(".order__value").val();
+        if (+number != 1) {
+            $(this).siblings('.order__value').children(".order__value").val(+number - 1);
+            $.post("/addToShoppingCart", {dishId: dishId, removeOne: true});
+        }
     });  
 });
