@@ -35,7 +35,7 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-router.post('/orders', addToShoppingCart);
+router.post('/addToShoppingCart', addToShoppingCart);
 
 router.post('/basket', addOrder);
 router.get('/basket', function(req,res) {
