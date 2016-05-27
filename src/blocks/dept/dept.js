@@ -10,7 +10,7 @@
                 sum =+sum.substring(0 , sum.indexOf('<'));
                 item.sum = sum;
                 item.id = dept.children('.dept__order-id').html();
-                $.post("/saveDept", {dept: item}, function(item) {
+                $.post("/saveDept", {dept: item}, function() {
                     dept.children('.dept__name').css("display", "none");
                     dept.children('.dept__sum').css("display", "none");
                     dept.children('.dept__paid').css("display", "none");
