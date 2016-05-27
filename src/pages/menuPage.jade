@@ -27,10 +27,6 @@ block content
             .main-wrapper__menu
                 span.main-wrapper__title Что вы хотите съесть сегодня?
                 each dish in service.dishes
-                    //form(action="/orders", method="post").main-wrapper__menuitem
-                    //input(type="hidden", name="dishId" value="#{dish._id}")
-                    //input(type="hidden", name="dishTitle" value="#{dish.name}")
-                    //input(type="hidden", name="dishPrice" value="#{dish.price}")
                     +menuitem(dish)
             .main-wrapper__cart
                 span.main-wrapper__title Корзина
@@ -39,5 +35,7 @@ block content
         +footer("Заказывайте еду на нашей стороне, на темной стороне...")
     script
         include ../blocks/menuitem/menuitem.js
+        include ../blocks/menuitem/less.js
+        include ../blocks/menuitem/more.js
 
 

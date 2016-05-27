@@ -3,7 +3,7 @@ $(function(){
         var dishId = $(this).parent().children('[name=dishId]').val();
         $.post("/addToShoppingCart", {dishId: dishId}, function(dish) {
             $('.orders').prepend("<div class='order'>"+
-                "<a class='order__close' href='/removeFromBasket/'" + dish._id + ">"+
+                "<a class='order__close' href='/removeFromBasket/" + dish._id + "''>"+
                     "<i class='order__icon' order__icon_close></i>" + 
                 "</a>" + 
                 "<div class='order__info'>" + 
@@ -24,5 +24,5 @@ $(function(){
                 "</div>" + 
                 "</div>");
         }); 
-    });     
+    });  
 });
