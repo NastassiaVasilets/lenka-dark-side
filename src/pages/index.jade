@@ -11,15 +11,10 @@ include ../blocks/subscriber/subscriber
 block title
     title Главная страница
 block content
-    if user
+    .main-page__wrapper
         +header(user)
-        +button("Создать новый заказ", [".button_new-order"],{'href': '/services?owner=True' })
-    else
-        +header()
-        +button("Создать новый заказ", [".button_new-order", "button_not_active"])
-    script
-        include ../blocks/total/total.js
-    .main-wrapper
+        script
+            include ../blocks/total/total.js
         .main-page
             each order in orders
                 +session(order.owner, order.time, order.service, order.service._id, order, user, order.subscriber.length)
@@ -38,11 +33,6 @@ block content
                                     if subscriber.paid
                                         each dish in subscriber.dishes
                                             +group(dish)
-                //form.hide-form
-                    input(id="s" + order.id type="checkbox").hide-form__input
-                    label(for="s" + order.id) Показать присоединившихся:
-                    each subscriber in order.subscriber
-                        +subscriber(subscriber.person.name, subscriber.dishes, subscriber._id, subscriber, order)
         +footer("© Lenka-dark-side Corporation")
     script
         include ../blocks/mainpage/mainpage.js
