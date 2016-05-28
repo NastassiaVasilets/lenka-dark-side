@@ -26,7 +26,7 @@
                             clearInterval(intrvOfMoney);
                         };
 
-                        if ((Notification.permission === "granted") && (paid == false)) {
+                        if ((Notification.permission === "granted") && (paid == false) && (diffTime <=0)) {
                             var msg = new Notification("А кто это не отдал деньги!?", {
                                 body: "Мы тут узнали, что вы до сих пор не отдали деньги за заказ который делал " + data.subscriberArr[i].owner.name + "\n" + "Поберегите карму, скиньте кэш!", 
                                 icon: "../images/notification/icon.png"
@@ -46,7 +46,7 @@
                             console.log('Человек решил не отвечать!');
                         }
                     }
-                }, 60000);
+                }, 10000);
 
                 var intrvOfOwners = setInterval(function() {
 
@@ -143,7 +143,8 @@
                             console.log('Человек решил не отвечать!');
                         }
                     }
-                }, 120000);
+                    clearInterval(intrvOfSubscriber);
+                }, 10000);
         }
     })
 }, 20000);
