@@ -2,6 +2,9 @@ var OrderModel = require('../models/order').model;
 var moment = require('moment');
 
 module.exports = function HomeController(req, res, next) {
+    if (!req.user) {
+        res.redirect('/');
+    }
     OrderModel.find({})
         .populate("dishes")
         .populate("subscriber")
