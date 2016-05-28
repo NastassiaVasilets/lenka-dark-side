@@ -26,7 +26,7 @@ block content
                     each order in subscrOrders
                        +full-session(order.owner.name, order.time, order.service.logo, order, order.subscriber, "full-session_personal-area")
             .tabs__content.debt 
-                +dept(my,"Я должен")
+                +dept(my,"Я должен", "dept__my")
                 +dept(me,"Мне должны", ["dept__me"])
             .tabs__content.profile 
                 +person(user,["person_full"],{"full":"true"})
