@@ -7,7 +7,6 @@ include ../blocks/group/group
 include ../blocks/offers/offers
 include ../blocks/offers-plugin/offers-plugin
 include ../blocks/sidebarmenu/sidebarmenu
-include ../blocks/footer/footer
 
 block title
     title Выбор места заказа
@@ -19,6 +18,5 @@ block content
             each service, ind in services
                 +offers(service, "", ind) 
                     +offers-plugin(service)
-        +footer("Заказывайте еду на нашей стороне, на темной стороне...")
     script
         include ../blocks/sidebarmenu/sidebarmenu.js

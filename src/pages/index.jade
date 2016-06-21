@@ -4,7 +4,6 @@ include ../blocks/header/header
 include ../blocks/button/button
 include ../blocks/order/order
 include ../blocks/session/session
-include ../blocks/footer/footer
 include ../blocks/group/group
 include ../blocks/subscriber/subscriber
 
@@ -33,6 +32,5 @@ block content
                                     if subscriber.paid
                                         each dish in subscriber.dishes
                                             +group(dish)
-        +footer("© Lenka-dark-side Corporation")
     script
         include ../blocks/mainpage/mainpage.js
