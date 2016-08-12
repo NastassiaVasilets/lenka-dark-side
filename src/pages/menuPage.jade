@@ -6,7 +6,6 @@ include ../blocks/menuitem/menuitem
 include ../blocks/group/group
 include ../blocks/offers/offers
 include ../blocks/sidebarmenu/sidebarmenu
-include ../blocks/footer/footer
 include ../blocks/basket/basket
 
 block title
@@ -32,6 +31,5 @@ block content
                 span.main-wrapper__title Корзина
                 +basket(dishes, service)
         +button("Назад к сервисам", [],{'href': '/services?owner=True'})
-        +footer("Заказывайте еду на нашей стороне, на темной стороне...")
     script
         include ../blocks/menuitem/menuitem.js
