@@ -6,7 +6,6 @@ module.exports = function wantSame(req, res, err) {
         if (err) {
             return next(err);
         }
-        console.log(order);
         order.subscriber.forEach(function (sub) {
             if (sub._id == req.body.subscriberId) {
                 sub.paid = req.body.inputChecked;

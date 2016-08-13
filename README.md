@@ -7,4 +7,6 @@ git clone ...
 
 npm i
 
-gulp
+gulp stylus
+
+nodemon server
