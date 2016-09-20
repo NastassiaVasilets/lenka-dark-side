@@ -2,16 +2,16 @@ var express = require('express'),
     app = express(),
 
     mongoose = require('mongoose'),
-    auth = require('./src/controllers/auth.js'),
+    auth = require('./server/controllers/auth.js'),
     passport = require('passport'),
     session = require('express-session'),
 
     bodyParser = require('body-parser'),
 
-    errorHandler = require('./src/errors/errorHandler.js'),
-    errorLogger = require('./src/errors/errorLogger.js'),
+    errorHandler = require('./server/errors/errorHandler.js'),
+    errorLogger = require('./server/errors/errorLogger.js'),
 
-    routes = require('./src/routes/routes.js'),
+    routes = require('./server/routes/routes.js'),
 
     cookieParser = require('cookie-parser');
 
@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({
 app.use('/', routes.router);
 
 app.set('view engine', 'jade');
-app.set('views', './src/pages');
+app.set('views', './client/pages');
 
 
 app.use(errorLogger);
