@@ -3,22 +3,21 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver'),
     jscs = require('gulp-jscs'),
     gulpif = require('gulp-if'),
-    uglify = require('gulp-uglify'),
     argv = require('minimist')(process.argv.slice(2)),
     gutil = require('gulp-util'),
     stylus = require('gulp-stylus'),
     autoprefixer = require('gulp-autoprefixer'),
     htmlmin = require('gulp-htmlmin'),
-    seed = require('./src/scripts/seed');
+    seed = require('./server/scripts/seed');
 
 gulp.task('img', function () {
-    return gulp.src('./src/images/**')
+    return gulp.src('./client/images/**')
         .pipe(gulp.dest('./dist/images'))
 
 });
 
 gulp.task('stylus', function() {
-    return gulp.src('./src/index.styl')
+    return gulp.src('./client/index.styl')
         .pipe(stylus())
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -28,36 +27,25 @@ gulp.task('stylus', function() {
 });
 
 gulp.task('jscs', function () {
-    return gulp.src(['./public/**/*.js','gulpfile.js', 'server.js'])
+    return gulp.src(['./dist/**/*.js','gulpfile.js', 'server.js'])
         .pipe(jscs())
         .pipe(jscs.reporter());
 });
 
 gulp.task('jade', function () {
-    gulp.src('./src/views/**/*.jade')
+    gulp.src('./client/**/*.jade')
         .pipe(jade({
             pretty: true
         }).on('error', gutil.log))
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('minify', function() {
-    return gulp.src('./public/*.html')
-    .pipe(gulpif(argv.production, htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('./public'));
-});
-
-gulp.task('uglify', function() {
-  return gulp.src('./public/js/*.js')
-    .pipe(gulpif(argv.production, uglify()))
-    .pipe(gulp.dest('./public/js'));
-});
-
 gulp.task('watch', function () {
-    gulp.watch('./src/**/*.styl', ['stylus']);
-    gulp.watch('./src/**/*.jade', ['jade']);
-    gulp.watch('./src/images/**', ['img']);
-    gulp.watch('./src/blocks/**/*.js', ['js']);
+    gulp.watch('./client/*.styl', ['stylus']);
+    gulp.watch('./client/**/*.styl', ['stylus']);
+    gulp.watch('./client/**/*.jade', ['jade']);
+    gulp.watch('./client/images/**', ['img']);
+    gulp.watch('./client/blocks/**/*.js', ['js']);
 });
 
 gulp.task('webserver', function () {
